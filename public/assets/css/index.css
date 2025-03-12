@@ -1,0 +1,784 @@
+@font-face {
+    font-family: 'Speedee_regular';
+    src: url('../font/Speedee_W_Rg.woff');
+  }
+  
+  @font-face {
+    font-family: 'Speedee_bold';
+    src: url('../font/Speedee_W_Bd.woff');
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    height: 100dvh;
+    width: 100vw;
+    background-color: transparent;
+    pointer-events: none;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Landing Page  */
+  
+  .landing-page {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    background: #ffcc00;
+    pointer-events: none;
+  }
+  
+  .topbar {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+  
+  .topbar img {
+    width: 12vw;
+  }
+  
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* padding-top: 2.5rem; */
+    height: 40dvh;
+  }
+  
+  .hero-text h1 {
+    text-transform: uppercase;
+    font-family: 'Speedee_bold';
+    font-weight: 700;
+    font-size: 32px;
+    margin: 0.5rem;
+    color: #1b1208;
+  }
+  
+  .hero-text img {
+    width: 86vw;
+  }
+  
+  .shordaar-crunnnch-image {
+    position: absolute;
+    width: 98vw;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  
+  .next-btn {
+    position: absolute;
+    bottom: 0.8rem;
+   width: 100%;
+
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    animation: breathe 2s infinite ease-in-out;
+    /* transition: scale 2s ease; */
+    pointer-events: auto;
+  }
+  
+  .next-btn img {
+    /* width: 10vw; */
+  }
+  
+  .burger-img {
+    height: 70dvh;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  .full-burger-img,
+  .eaten-burger-img {
+    position: absolute;
+    width: 85%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  
+  .full-burger-img {
+    pointer-events: auto;
+  }
+  
+  .eaten-burger-img {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .burger-img {
+    width: 100vw;
+    padding: 0 8vw;
+    height: 80dvh;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  /* Game Screen  */
+  
+  .game-screen {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .instruction-container {
+    display: block;
+    position: relative;
+    top: 120dvh;
+    transition: top 1s;
+    animation: show-modal 500ms 300ms both;
+  }
+  
+  .instruction {
+    width: 80vw;
+    padding: 5vw;
+    padding-top: 6vw;
+    background: #ffbc0c;
+    position: relative;
+    top: 1rem;
+  }
+  
+  .instruction .instruction-img {
+    width: 100%;
+    box-shadow: 0px 3.37px 0px 0px #ffbc0c;
+    box-shadow: 0px 6.73px 0px 0px #00000040;
+    box-shadow: 0px -3.37px 0px 0px #d1ac4b;
+  }
+  
+  .close-btn {
+    width: 12vw;
+    height: 12vw;
+    z-index: 2;
+    position: absolute;
+    top: -1vw;
+    right: -1vw;
+    background: #ffbc0d;
+    padding: 0.8rem;
+    box-shadow: -5px 3.37px 0px 0px #ffbc0c, -5px 6.73px 0px 0px #00000040;
+    pointer-events: auto;
+  }
+  
+  .close-btn img {
+    width: 100%;
+  }
+  
+  .dripping-cheese {
+    width: 80vw;
+    position: relative;
+    top: 0rem;
+  }
+  
+  .score-card {
+    min-width: 60vw;
+    height: 20vw;
+    position: absolute;
+    top: 4dvh;
+    right: 0;
+    border-radius: 42px 0 0 42px;
+    background: #ffbc0d;
+    box-shadow: 0px 7.76px 0px 0px #00000040, 0px 3.88px 0px 0px #ffbc0c;
+    display: flex;
+    align-items: center;
+  }
+  
+  .score-card img {
+    width: 6vw;
+    margin: 1.5rem;
+    margin-right: 1rem;
+  }
+  
+  .timer {
+    width: 25vw;
+    height: 25vw;
+    background: #fff;
+    border-radius: 50%;
+    /* box-shadow: 0px 7.76px 0px 0px #00000040, 0px 3.88px 0px 0px #FFBC0C; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .outer-circle {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    box-shadow: 0px 2.26px 2.26px 0px #00000040 inset;
+    background: #ffbc0d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: conic-gradient(#db0007e5 360deg, #ffbc0d 0deg);
+    transition: background 1s ease;
+  }
+  
+  @keyframes fillAnimation {
+    0% {
+      background: conic-gradient(#db0007e5 0deg, #ffbc0d 0deg);
+    }
+  
+    100% {
+      background: conic-gradient(#db0007e5 360deg, #ffbc0d 0deg);
+    }
+  }
+  
+  @keyframes show-modal {
+    0% {
+      top: 120dvh;
+    }
+  
+    100% {
+      top: 5dvh;
+    }
+  }
+  
+  @keyframes hide-modal {
+    0% {
+      top: 5dvh;
+    }
+  
+    100% {
+      top: 120dvh;
+    }
+  }
+  
+  .inner-circle {
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+  }
+  
+  .inner-circle img {
+    margin: 0;
+    width: 90%;
+    object-fit: contain;
+  }
+  
+  .score-card .score {
+    font-family: 'Speedee_bold';
+    font-size: 48px;
+    margin: 1rem;
+    color: #fff;
+    text-shadow: 0px 4px 0px #00000040;
+  }
+  
+  /* .ten-points,
+  .look-around,
+  .subtracted-point,
+  .one-point,
+  .two-points {
+    position: absolute;
+    width: 80vw;
+    top: 40vw;
+    right: 0;
+    left: 0;
+    margin: auto;
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+  }
+  
+  .look-around {
+    width: 45vw;
+  } */
+  
+  .ten-points,
+  .look-around,
+  .subtracted-point,
+  .one-points,
+  .two-points,
+  .ten-points-bg,
+  .ten-points,
+  .minus-ten,
+  .minus-ten-blast {
+    position: absolute;
+    width: 50vw;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+  }
+  
+  .one-points,
+  .two-points {
+    width: 42vw;
+  }
+  
+  .minus-ten,
+  .ten-points {
+    z-index: 3;
+  }
+  
+  .ten-points-bg {
+    animation: scale-and-vanish 1s both;
+  }
+  
+  .minus-ten-blast {
+    animation: scale-and-vanish 1s both;
+  }
+  
+  .radial-gradient {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    width: 100vw;
+    height: 100dvh;
+    background: radial-gradient(
+      88.8% 51.67% at 50% 51.67%,
+      rgba(255, 86, 13, 0) 0%,
+      rgba(255, 69, 13, 0.08) 46.37%,
+      rgba(255, 49, 13, 0.85) 100%
+    );
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+  }
+  
+  @keyframes scale-and-vanish {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  
+  /* Coupon-container     */
+  /* 
+  .coupon-container {
+    background: transparent;
+    display: none;
+  }
+  
+  .coupon-container-top {
+    width: 90vw;
+    padding: 5vw;
+    padding-top: 6vw;
+    background: #ffbc0c;
+    position: relative;
+    top: 0.3rem;
+  }
+  
+  .coupon-dripping-cheese {
+    width: 90vw;
+    position: relative;
+    top: 0rem;
+  }
+  
+  .coupon-wrapper {
+    width: 95%;
+    margin: auto;
+    background: #fff;
+    margin-top: 0.8rem;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+  
+  .coupon-wrapper .coupon-hero-img {
+    width: 90%;
+    margin: auto;
+    margin-top: 2.5rem;
+  }
+  
+  .congratulations-text {
+    margin: 1rem;
+    text-align: start;
+  }
+  
+  .congratulations-text p {
+    font-family: 'Speedee_bold';
+    color: #262626;
+  }
+  
+  .congratulations-text p:first-child {
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
+  
+  .congratulations-text p:last-child {
+    font-size: 16px;
+    font-family: 'Speedee_regular';
+    color: #4d4d4d;
+  } */
+  
+  .coupon-container,
+  .try-again-container {
+    background: transparent;
+    display: none;
+  }
+  
+  .coupon-container-top,
+  .try-again-top {
+    width: 90vw;
+    padding: 5vw;
+    padding-top: 6vw;
+    background: #ffbc0c;
+    position: relative;
+    top: 0.3rem;
+  }
+  
+  .coupon-dripping-cheese,
+  .try-again-dripping-cheese {
+    width: 90vw;
+    position: relative;
+    top: 0rem;
+  }
+  
+  .coupon-wrapper,
+  .try-again-wrapper {
+    width: 95%;
+    margin: auto;
+    background: #fff;
+    margin-top: 0.8rem;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+  
+  .coupon-wrapper .coupon-hero-img,
+  .try-again-hero-img,
+  .redeem-now-hero-img {
+    width: 90%;
+    margin: auto;
+    margin-top: 2.5rem;
+  }
+  
+  .redeem-now-hero-img {
+    display: none;
+  }
+  
+  .congratulations-text,
+  .oops-text {
+    margin: 1rem;
+    text-align: start;
+  }
+  
+  .oops-text {
+    text-align: center;
+  }
+  
+  .oops-score {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: #ffbc0d;
+    padding: 4px 16px;
+    border-radius: 38px;
+    margin-bottom: 8px;
+    gap: 8px;
+  }
+  
+  .oops-score p:first-child {
+    font-size: 24px;
+    font-family: 'Speedee_regular';
+    margin: 0;
+    color: #000 !important;
+  }
+  
+  .oops-score p:last-child {
+    color: #000 !important;
+    font-size: 32px !important;
+    margin: 0 !important;
+    font-family: 'Speedee_bold' !important;
+  }
+  
+  .your-score {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    background: #db0007;
+    width: max-content;
+    padding: 4px 16px;
+    border-radius: 38px;
+    margin-bottom: 8px;
+    gap: 8px;
+  }
+  
+  .your-score p:first-child {
+    font-size: 24px;
+    font-family: 'Speedee_regular';
+    margin: 0;
+    color: #fff !important;
+  }
+  
+  .your-score p:last-child {
+    color: #fff !important;
+    font-size: 32px !important;
+    margin: 0 !important;
+    font-family: 'Speedee_bold' !important;
+  }
+  
+  .try-again-btn,
+  .redeem-now-btn,.play-btn {
+    width: 75%;
+    margin-bottom: 2rem;
+    pointer-events: auto;
+  }
+  
+  .congratulations-text p,
+  .oops-text p {
+    font-family: 'Speedee_bold';
+    color: #262626;
+  }
+  
+  .congratulations-text p:first-child,
+  .oops-text p:first-child {
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
+  
+  .congratulations-text p:last-child,
+  .oops-text p:last-child {
+    font-size: 16px;
+    font-family: 'Speedee_regular';
+    color: #4d4d4d;
+  }
+  
+  .submit-mobile-btn {
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    background: #ffbc0d;
+    pointer-events: auto;
+  }
+  
+  .mobile-input-wrapper .mobile-icon {
+    width: 5vw;
+    margin: 0 8px;
+  }
+  
+  .submit-mobile-btn .arrow-icon {
+    width: 8vw;
+    margin: auto;
+    padding: 6px;
+  }
+  
+  .mobile-input-wrapper {
+    background: #e6e6e6;
+    width: 95%;
+    border-radius: 42px;
+  
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem auto;
+    margin-bottom: 3rem;
+    pointer-events: auto;
+  }
+  
+  .mobile-input-wrapper input {
+    background: #e6e6e6;
+    border: none;
+    outline: none;
+    color: #7d7d7d;
+    font-family: 'Speedee_regular';
+    font-size: 16px;
+    width: 80%;
+    pointer-events: auto;
+  }
+  
+  .mobile-input-wrapper input::placeholder {
+    color: #7d7d7d;
+    font-family: 'Speedee_regular';
+    font-size: 16px;
+  }
+  
+  #error-message {
+    color: red;
+    display: none;
+    position: relative;
+    top: -2.7rem;
+    font-family: 'Speedee_regular';
+    font-size: 16px;
+  }
+  
+  .coupon-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    padding-bottom: 0;
+    text-align: start;
+  
+    align-items: center;
+    margin-bottom: 4px;
+    margin-top: 2rem;
+  }
+  
+  .coupon-text-info,
+  .offer-prompt {
+    font-family: 'Speedee_regular';
+    font-size: 16px;
+    color: #4d4d4d;
+    margin: 0;
+  
+    text-align: center;
+    line-height: 1.2;
+  }
+  
+  .offer-prompt {
+    font-size: 15px;
+  }
+  
+  .coupon-text-wrapper .coupon-text-info:first-child {
+    font-size: 15px;
+  }
+  
+  .coupon-text-wrapper .coupon-text-info:last-child {
+    font-size: 14px;
+  }
+  
+  .coupon,
+  .try-our-burger-prompt {
+    color: #262626;
+    font-family: 'Speedee_bold';
+    font-size: 40px;
+    margin: 0;
+  }
+  
+  .try-our-burger-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .coupon-footer {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tick {
+    width: 14vw;
+  }
+  
+  .phone-submitted-text {
+    color: #7d7d7d;
+    font-family: 'Speedee_regular';
+    font-size: 16px;
+    margin: 6px;
+  }
+  .download-coupon-btn,
+  .play-again-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #dadada;
+    border: none;
+    outline: none;
+    padding: 4px 16px;
+    border-radius: 4px;
+    pointer-events: auto;
+  }
+  
+  .play-again-btn {
+    margin-bottom: 1.5rem;
+  }
+  
+  .download-coupon-btn img,
+  .play-again-btn img {
+    width: 6vw;
+    margin-right: 10px;
+  }
+  
+  .play-again-btn img {
+    width: 4vw;
+  }
+  
+  .download-coupon-btn span,
+  .play-again-btn span {
+    color: #7d7d7d;
+    font-family: 'Speedee_regular';
+    font-size: 14px;
+  }
+  
+  .coupon-container .try-again-btn,
+  .coupon-container .redeem-now-btn {
+    margin-top: 1rem;
+  }
+  
+  .redeem-now-btn {
+    margin: 0.5rem;
+  }
+  
+  @keyframes breathe {
+    0% {
+      transform: scale(1);
+    }
+  
+    50% {
+      transform: scale(0.9);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes scaleDown {
+    0% {
+      scale: 1;
+    }
+  
+    50% {
+      scale: 1.2;
+    }
+  
+    100% {
+      scale: 0;
+    }
+  }
+  

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html class="a-fullscreen">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/index.css">
+  
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
+
+  <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/3.4.5/three.js/build/ar-threex-location-only.js'></script>
+  <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js'></script>
+  
+
+
+
+<script
+  crossorigin="anonymous"
+  src="https://unpkg.com/aframe-look-at-component/dist/aframe-look-at-component.min.js"></script>
+
+<!-- Add GIF for sharing -->
+<!-- <meta property="og:image" content="https://i.giphy.com/media/rAi32DNlsWNpItOpDr/giphy.gif" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+
+<!-- bootstrap -->
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+  crossorigin="anonymous" />
+<!-- bootstrap -->
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+  crossorigin="anonymous"></script>
+
+<!-- html2canvas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<!-- jquery -->
+<!-- <script
+  defer
+  src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+  integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw="
+  crossorigin="anonymous"></script> -->
+
+<!-- <script src="//cdn.8thwall.com/web/aframe/8frame-1.3.0.min.js"></script> -->
+
+<!-- <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script> -->
+<!-- <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script> -->
+<link rel="preload" as="image" href="/assets/images/eaten-burger.png" />
+<link rel="preload" as="image" href="/assets/images/full-burger.png" />
+
+<link rel="prefetch" href="/assets/images/plus-ten-food-particles.png" />
+<link rel="prefetch" href="/assets/images/blast.png" />
+
+  <style>
+    .a-canvas {
+      width: 100vw !important;
+      height: 100vh !important;
+      object-fit: cover !important;
+    }
+   #scene{
+    width: 100vw !important;
+      height: 100vh !important;
+      object-fit: cover !important;
+   }
+    </style>
+</head>
+<body>
+  <!-- <div id="video-holder">
+    <video id="camvideo" autoplay="" crossorigin="" playsinline="" muted=""></video>
+  </div> -->
+  <div class="container">
+    <div class="landing-page">
+      <div class="topbar">
+        <img src="./assets/images/McD-logo.png" alt="McDonald's Logo" />
+      </div>
+  
+      <div class="hero-text">
+        <!-- <h1>It's the new</h1> -->
+        <img src="./assets/images/hero-img.png" alt="Crispy" />
+        <!-- <h1>Burger</h1> -->
+      </div>
+  
+      <img
+        class="shordaar-crunnnch-image"
+        src="./assets/images/shordaar-crunnnch-image.png"
+        alt="Shordaar Crunnnch Image" />
+  
+      <div class="burger-img">
+        <img class="full-burger-img" src="./assets/images/full-burger.png" alt="" />
+        <img class="eaten-burger-img" src="./assets/images/eaten-burger.png" alt="" />
+      </div>
+  <div class="next-btn">
+     <img  class="play-btn" src="./assets/images/play game.png" alt="play" />
+    </div>
+    </div>
+  
+    <div class="game-screen">
+      <div class="radial-gradient"></div>
+  
+      <div class="score-card">
+        <img src="./assets/images/Mc-Donalds-M.png" alt="M" />
+        <div class="timer">
+          <div class="outer-circle">
+            <div class="inner-circle">
+              <img src="./assets/images/burger-img.png" alt="Burger Image" />
+            </div>
+          </div>
+        </div>
+        <div class="score">00</div>
+      </div>
+  
+      <div class="instruction-container">
+        <div class="instruction">
+          <img
+            class="instruction-img"
+            src="./assets/images/instruction-img.png"
+            alt="Instructions Image" />
+          <div class="close-btn">
+            <img src="./assets/images/close.png" alt="Close Button" />
+          </div>
+        </div>
+        <img
+          class="dripping-cheese"
+          src="./assets/images/dripping-cheese.png"
+          alt="Dripping Cheese" />
+      </div>
+  
+      <!-- <div class="coupon-container">
+                  <div class="coupon-wrapper">
+                      <img class="coupon-hero-img" src="./assets/images/coupon-hero-img.png" alt="">
+  
+                      <div class="congratulations-text">
+                          <p>Congratulations!</p>
+                          <p>You’ve crunched your way to a big discount ! <br /> Fill in your detail to claim it now !</p>
+                      </div>
+  
+                      <div class="mobile-input-wrapper">
+                          <img class="mobile-icon" src="./assets/images/call.png" alt="Call Icon">
+                          <input type="text" placeholder="Enter Your Number">
+                          <button class="submit-mobile-btn">
+                              <img class="arrow-icon" src="./assets/images/arrow_back-white.png" alt="Arrow">
+                          </button>
+                      </div>
+                  </div>
+              </div> -->
+  
+      <div class="coupon-container" id="couponContainer">
+        <div class="coupon-container-top">
+          <div class="coupon-wrapper">
+            <img class="coupon-hero-img" src="./assets/images/coupon-hero-img.png" alt="" />
+            <img class="redeem-now-hero-img" src="./assets/images/redeem-now-hero-img.png" alt="" />
+  
+            <div class="mobile-input-footer">
+              <div class="congratulations-text">
+                <p>Congratulations!</p>
+  
+                <div class="your-score">
+                  <p>Your Score is</p>
+                  <p class="your-score-value">0</p>
+                </div>
+  
+                <p>
+                  You’ve crunched your way to a big discount ! Fill in your detail to claim it now !
+                </p>
+              </div>
+  
+              <div class="mobile-input-wrapper">
+                <img class="mobile-icon" src="./assets/images/call.png" alt="Call Icon" />
+                <input type="text" id="mobile-number" placeholder="Enter Your Number" />
+                <button class="submit-mobile-btn" id="submit-mobile-btn">
+                  <img class="arrow-icon" src="./assets/images/arrow_back-white.png" alt="Arrow" />
+                </button>
+              </div>
+  
+              <p id="error-message">Please enter a valid phone number</p>
+            </div>
+  
+            <div class="coupon-footer">
+              <div class="coupon-text-wrapper">
+                <!-- <p class="coupon-text-info">Your coupon code is</p>
+                  <p class="coupon">GETFREE25</p>
+                  <p class="coupon-text-info">
+                    Use this code at your nearby McDonald’s outlet.
+                  </p> -->
+  
+                <p class="offer-prompt">Special Offer Just for you !</p>
+                <div class="try-our-burger-prompt">
+                  <span>Try Our</span>
+                  <span>New McCrispy Burger 🍔</span>
+                </div>
+              </div>
+  
+              <!-- <img class="tick" src="./assets/images/green-tik.png" alt="Tik" /> -->
+  
+              <!-- <p class="phone-submitted-text">Phone number received.</p> -->
+  
+              <!-- <img src="./assets/images/play_again_button.png" class="try-again-btn" alt="Try again Button" /> -->
+  
+              <!-- <button id="downloadBtn" class="download-coupon-btn">
+                  <img src="./assets/images/download.png" alt="Download Icon" />
+                  <span>Download coupon image</span>
+                </button> -->
+  
+              <img
+                src="./assets/images/redeem-now-btn.png"
+                class="redeem-now-btn"
+                alt="Redeem Now Button" />
+  
+              <button class="play-again-btn retry-btn">
+                <img src="./assets/images/replay.png" alt="Replay Icon" />
+                <span>Play Again</span>
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <img
+          class="coupon-dripping-cheese"
+          src="./assets/images/dripping-cheese.png"
+          alt="Dripping Cheese" />
+      </div>
+  
+      <div class="try-again-container">
+        <div class="try-again-top">
+          <div class="try-again-wrapper">
+            <img class="try-again-hero-img" src="./assets/images/try-again-hero-img.png" alt="" />
+  
+            <div class="try-again-footer-footer">
+              <div class="oops-text">
+                <p>OOPS!</p>
+  
+                <div class="oops-score">
+                  <p>Your Score is</p>
+                  <p class="oops-score-value">0</p>
+                </div>
+                <p>Please collect atlease 150 points to win the voucher.</p>
+              </div>
+  
+              <img
+                src="./assets/images/try_again_button.png"
+                class="try-again-btn retry-btn"
+                alt="Try again Button" />
+            </div>
+          </div>
+        </div>
+  
+        <img
+          class="try-again-dripping-cheese"
+          src="./assets/images/dripping-cheese.png"
+          alt="Dripping Cheese" />
+      </div>
+  
+      <img class="two-points" src="./assets/images/two-points.png" />
+      <img class="one-points" src="./assets/images/one-points.png" />
+  
+      <img class="ten-points" src="./assets/images/plus-ten.png" />
+      <img class="ten-points-bg" src="./assets/images/plus-ten-food-particles.png" />
+  
+      <img class="minus-ten" src="./assets/images/minus-ten.png" />
+      <img class="minus-ten-blast" src="./assets/images/blast.png" />
+  
+      <!-- <img class="ten-points" src="./assets/images/10.png" />
+      <img class="subtracted-point" src="./assets/images/score_subtracted.png" /> -->
+  
+      <img class="look-around" src="./assets/images/look_around_icon.png" />
+    </div>
+  </div>
+
+  <audio id="sound1">
+    <source src="./assets/audio/sound1.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="sound2">
+    <source src="./assets/audio/sound2.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="bombSound">
+    <source src="./assets/audio/explosion.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="cokeSound">
+    <source src="./assets/audio/tap.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="friesSound">
+    <source src="./assets/audio/tap.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="gameSound" loop>
+    <source src="./assets/audio/ReelAudio-52276.mp3" type="audio/mpeg" />
+  </audio>
+  
+  <audio id="crunchSound">
+    <source src="./assets/audio/CRUNCH.mp3" type="audio/mpeg" />
+  </audio>
+
+  <a-scene vr-mode-ui="enabled: false"  arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true' game-script
+      id="scene" >
+    <a-assets>
+      <!-- <a-asset-item id="full_burger" src="./assets/model/fullBurger.glb"></a-asset-item>
+      <a-asset-item id="half_burger" src="./assets/model/HalfBurger.glb"></a-asset-item> -->
+      <!-- <a-asset-item id="bomb" src="./assets/model/cherry_bomb.glb"></a-asset-item> -->
+      <img id="full_burger_img" src="./assets/img/Full_McCRISPY_BURGER_3.png" />
+      <img id="half_burger_img" src="./assets/img/Half_McCRISPY_BURGER_3.png" />
+  
+      <img id="full_burgerchicken_img" src="./assets/img/Full_BURGER_chicken_1.png" />
+      <img id="half_burgerchicken_img" src="./assets/img/Half_BURGER_chicken_bit_1.png" />
+      <img id="coke_img" src="./assets/img/coke.png" />
+      <img id="fries_img" src="./assets/img/fries.png" />
+      <img id="bomb_img" src="./assets/img/balloon.png" />
+    </a-assets>
+    
+
+
+
+    <a-camera
+      id="camera"
+      position="0 1.6 5.75"
+      fov="80"
+      raycaster="objects: .clickable"
+      cursor="fuse: false; rayOrigin: mouse;" look-controls="touchEnabled: false" 
+     > 
+    </a-camera>
+  
+    <a-entity light="type: ambient; intensity: 0.4;" position="0 0 0"></a-entity>
+    <a-entity
+      light="type: directional;
+      castShadow: true;
+      shadowMapHeight:2048;
+      shadowMapWidth:2048;
+      shadowCameraTop: 10;
+      target: #realtime-ball;
+      shadowRadius: 10;
+      intensity:0.4;"
+      position="0 4 3"
+      shadow>
+    </a-entity>
+  </a-scene>
+  <!-- <script>var video = document.getElementById('camvideo');   if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({video: {
+    facingMode: 'environment'
+    }}).then(function(stream) {
+    video.srcObject=stream;
+    video.play();
+    });
+  }
+
+  </script> -->
+  <script type="module" src="./assets/js/gameScript.js"></script>
+  <script type="module">
+    // Import the custom script from script.js
+    import { frontendScriptComponent } from './assets/js/script.js';
+    
+    // Call the script's logic after the DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      frontendScriptComponent.init();  // Run frontend script logic
+    });
+    
+
+    import { mainComponent } from './assets/js/index.js';
+    
+    // Call the script's logic after the DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      mainComponent.init();  // Run frontend script logic
+    });
+    // import { gameScriptComponent } from './gameScript.js';
+    
+    // // Call the script's logic after the DOM is ready
+    // document.addEventListener('DOMContentLoaded', () => {
+    //   gameScriptComponent.init();  // Run frontend script logic
+    // });
+  </script>
+
+
+ 
+</body>
+</html>
